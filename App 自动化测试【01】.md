@@ -2,37 +2,37 @@
 
 # _使用 Android SDK 内部工具对 Android App 进行自动化测试_
 
-# _目录_
+# 目录
 
-    [1. 相关资源](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#1-相关资源)
-        [1.1 文档](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#11-文档)
-        [1.2 源码](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#12-源码)
+[1. 相关资源](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#1-相关资源)
+- [1.1 文档](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#11-文档)
+- [1.2 源码](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#12-源码)
 
-    [2. Monkey 压测实践](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#2-monkey-压测实践)
-        [2.1 Monkey 压测步骤](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#21-monkey-压测步骤)
-        [2.2 Monkey 选项参数](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#22-monkey-选项参数)
-            [2.2.1 常用选项参数](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#221-常用选项参数)
-            [2.2.2 事件选项参数](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#222-事件选项参数)
-            [2.2.3 约束选项参数](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#223-约束选项参数)
-            [2.2.4 调试选项参数](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#224-调试选项参数)
+[2. Monkey 压测实践](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#2-monkey-压测实践)
+- [2.1 Monkey 压测步骤](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#21-monkey-压测步骤)
+- [2.2 Monkey 选项参数](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#22-monkey-选项参数)
+ - [2.2.1 常用选项参数](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#221-常用选项参数)
+ - [2.2.2 事件选项参数](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#222-事件选项参数)
+ - [2.2.3 约束选项参数](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#223-约束选项参数)
+ - [2.2.4 调试选项参数](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#224-调试选项参数)
 
-    [3. Monkey Script 压测实践](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#3-monkey-script-压测实践)
-        [3.1 Monkey Script 常用命令](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#31-monkey-script-常用命令)
-        [3.2 使用 UI Automator Viewer 工具](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#32-使用-ui-automator-viewer-工具)
-        [3.3 编写 Monkey Script 脚本](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#33-编写-monkey-script-脚本)
-        [3.4 拷贝 Monkey Script 脚本到手机](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#34-拷贝-monkey-script-脚本到手机)
-        [3.5 执行 Monkey Script 脚本](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#35-执行-monkey-script-脚本)
+[3. Monkey Script 压测实践](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#3-monkey-script-压测实践)
+- [3.1 Monkey Script 常用命令](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#31-monkey-script-常用命令)
+- [3.2 使用 UI Automator Viewer 工具](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#32-使用-ui-automator-viewer-工具)
+- [3.3 编写 Monkey Script 脚本](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#33-编写-monkey-script-脚本)
+- [3.4 拷贝 Monkey Script 脚本到手机](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#34-拷贝-monkey-script-脚本到手机)
+- [3.5 执行 Monkey Script 脚本](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#35-执行-monkey-script-脚本)
 
-    [4. Monkey Runner 压测实践](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#4-monkey-runner-压测实践)
-        [4.1 Monkey Runner 三大模块](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#41-monkey-runner-三大模块)
-        [4.2 Monkey Runner 常用 API](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#42-monkey-runner-常用-api)
-            [4.2.1 MonkeyRunner API](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#421-monkeyrunner-api)
-            [4.2.2 MonkeyDevice API](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#422-monkeydevice-api)
-            [4.2.3 MonkeyImage API](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#423-monkeyimage-api)
-        [4.3 编写 Monkey Runner 脚本](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#43-编写-monkey-runner-脚本)
-        [4.4 执行 Monkey Runner 脚本](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#44-执行-monkey-runner-脚本)
+[4. Monkey Runner 压测实践](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#4-monkey-runner-压测实践)
+- [4.1 Monkey Runner 三大模块](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#41-monkey-runner-三大模块)
+- [4.2 Monkey Runner 常用 API](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#42-monkey-runner-常用-api)
+ - [4.2.1 MonkeyRunner API](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#421-monkeyrunner-api)
+ - [4.2.2 MonkeyDevice API](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#422-monkeydevice-api)
+ - [4.2.3 MonkeyImage API](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#423-monkeyimage-api)
+- [4.3 编写 Monkey Runner 脚本](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#43-编写-monkey-runner-脚本)
+- [4.4 执行 Monkey Runner 脚本](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#44-执行-monkey-runner-脚本)
 
-    [5. 写在最后](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#5-写在最后)
+[5. 写在最后](https://github.com/vveicc/app_auto_test/blob/master/App%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E3%80%9001%E3%80%91.md#5-写在最后)
 
 ## 1. 相关资源
 
