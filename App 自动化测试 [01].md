@@ -1,4 +1,6 @@
-# App 自动化测试【一】—— 使用 Android SDK 内部工具对 Android App 进行自动化测试
+# App 自动化测试【一】
+
+# _使用 Android SDK 内部工具对 Android App 进行自动化测试_
 
 ## 1. 相关资源
 
