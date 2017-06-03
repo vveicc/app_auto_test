@@ -1,6 +1,38 @@
-# App 自动化测试【一】
+# App 自动化测试【01】
 
 # _使用 Android SDK 内部工具对 Android App 进行自动化测试_
+
+# _目录_
+
+    [1. 相关资源]()
+        [1.1 文档]()
+        [2.2 源码]()
+
+    [2. Monkey 压测实践]()
+        [2.1 Monkey 压测步骤]()
+        [2.2 Monkey 选项参数]()
+            [2.2.1 常用选项参数]()
+            [2.2.2 事件选项参数]()
+            [2.2.3 约束选项参数]()
+            [2.2.4 调试选项参数]()
+
+    [3. Monkey Script 压测实践]()
+        [3.1 Monkey Script 常用命令]()
+        [3.2 使用 UI Automator Viewer 工具]()
+        [3.3 编写 Monkey Script 脚本]()
+        [3.4 拷贝 Monkey Script 脚本到手机]()
+        [3.5 执行 Monkey Script 脚本]()
+
+    [4. Monkey Runner 压测实践]()
+        [4.1 Monkey Runner 三大模块]()
+        [4.2 Monkey Runner 常用 API]()
+            [4.2.1 MonkeyRunner API]()
+            [4.2.2 MonkeyDevice API]()
+            [4.2.3 MonkeyImage API]()
+        [4.3 编写 Monkey Runner 脚本]()
+        [4.4 执行 Monkey Runner 脚本]()
+
+    [5. 写在最后]()
 
 ## 1. 相关资源
 
@@ -43,7 +75,8 @@ $ adb uninstall [-k] PACKAGE
      remove this app package from the device
      '-k': keep the data and cache directories
 
-e.g. $ adb install testapp.apk
+e.g.
+$ adb install testapp.apk
 ```
 
 4. 获取 App 包名。
@@ -64,10 +97,11 @@ $ adb shell pm list packages
 ```tex
 $ adb shell monkey [-p ALLOWED_PACKAGE [-p ALLOWED_PACKAGE] ...] COUNT
 
-e.g. $ adb shell monkey -p com.android.calculator2 1000
+e.g.
+$ adb shell monkey -p com.android.calculator2 1000
 ```
 
-### 2.2 Monkey 常用参数
+### 2.2 Monkey 选项参数
 
 标准的 Monkey 命令：
 
@@ -83,7 +117,8 @@ $ adb shell monkey [options] COUNT
 ```tex
 $ adb shell monkey [-v [-v] ...] COUNT
 
-e.g. $ adb shell monkey -v -p com.android.calculator2 100
+e.g.
+$ adb shell monkey -v -p com.android.calculator2 100
 ```
 
 2. **>** 参数
@@ -92,7 +127,8 @@ e.g. $ adb shell monkey -v -p com.android.calculator2 100
 ```tex
 $ adb shell monkey [-v [-v] ...] COUNT >FILE_NAME.txt
 
-e.g. $ adb shell monkey -v -p com.android.calculator2 100 >log.txt
+e.g.
+$ adb shell monkey -v -p com.android.calculator2 100 >log.txt
 ```
 
 #### 2.2.2 事件选项参数
@@ -104,7 +140,8 @@ e.g. $ adb shell monkey -v -p com.android.calculator2 100 >log.txt
 ```tex
 $ adb shell monkey [-s SEED] COUNT
 
-e.g. $ adb shell monkey -s 36 -p com.android.calculator2 100
+e.g.
+$ adb shell monkey -s 36 -p com.android.calculator2 100
 ```
 
 2. **--throttle** & **--randomize-throttle** 参数
@@ -113,7 +150,8 @@ e.g. $ adb shell monkey -s 36 -p com.android.calculator2 100
 ```tex
 $ adb shell monkey [--throttle MILLISEC] [--randomize-throttle] COUNT
 
-e.g. $ adb shell monkey --throttle 1000 -p com.android.calculator2 36
+e.g.
+$ adb shell monkey --throttle 1000 -p com.android.calculator2 36
 ```
 
 3. **--pct-touch** 参数
@@ -122,7 +160,8 @@ e.g. $ adb shell monkey --throttle 1000 -p com.android.calculator2 36
 ```tex
 $ adb shell monkey [--pct-touch PERCENT] COUNT
 
-e.g. $ adb shell monkey -v --pct-touch 100 -p com.android.calculator2 100
+e.g.
+$ adb shell monkey -v --pct-touch 100 -p com.android.calculator2 100
 ```
 
 4. 类似设置事件百分比的参数还有：
@@ -146,7 +185,8 @@ e.g. $ adb shell monkey -v --pct-touch 100 -p com.android.calculator2 100
 ```tex
 $ adb shell monkey [-p ALLOWED_PACKAGE [-p ALLOWED_PACKAGE] ...] COUNT
 
-e.g. $ adb shell monkey -p com.android.calculator2 -p com.android.calendar 100
+e.g.
+$ adb shell monkey -p com.android.calculator2 -p com.android.calendar 100
 ```
 
 2. **-c** 参数
@@ -155,7 +195,8 @@ e.g. $ adb shell monkey -p com.android.calculator2 -p com.android.calendar 100
 ```tex
 $ adb shell monkey [-c MAIN_CATEGORY [-c MAIN_CATEGORY] ...] COUNT
 
-e.g. $ adb shell monkey -c android.intent.category.LAUNCHER -c android.intent.category.HOME 100
+e.g.
+$ adb shell monkey -c android.intent.category.LAUNCHER -c android.intent.category.HOME 100
 ```
 
 #### 2.2.4 调试选项参数
@@ -166,7 +207,8 @@ e.g. $ adb shell monkey -c android.intent.category.LAUNCHER -c android.intent.ca
 ```tex
 $ adb shell monkey [--hprof] COUNT
 
-e.g. $ adb shell monkey --hprof 100
+e.g.
+$ adb shell monkey --hprof 100
 ```
 
 2. **--ignore-crashes** 参数
@@ -175,7 +217,8 @@ e.g. $ adb shell monkey --hprof 100
 ```tex
 $ adb shell monkey [--ignore-crashes] COUNT
 
-e.g. $ adb shell monkey --ignore-crashes 100
+e.g.
+$ adb shell monkey --ignore-crashes 100
 ```
 
 3. **--ignore-timeouts** 参数
@@ -184,7 +227,8 @@ e.g. $ adb shell monkey --ignore-crashes 100
 ```tex
 $ adb shell monkey [--ignore-timeouts] COUNT
 
-e.g. $ adb shell monkey --ignore-timeouts 100
+e.g.
+$ adb shell monkey --ignore-timeouts 100
 ```
 
 4. **--ignore-security-exceptions** 参数
@@ -193,7 +237,8 @@ e.g. $ adb shell monkey --ignore-timeouts 100
 ```tex
 $ adb shell monkey [--ignore-security-exceptions] COUNT
 
-e.g. $ adb shell monkey --ignore-security-exceptions 100
+e.g.
+$ adb shell monkey --ignore-security-exceptions 100
 ```
 
 5. **--kill-process-after-error** 参数
@@ -202,7 +247,8 @@ e.g. $ adb shell monkey --ignore-security-exceptions 100
 ```tex
 $ adb shell monkey [--kill-process-after-error] COUNT
 
-e.g. $ adb shell monkey --kill-process-after-error 100
+e.g.
+$ adb shell monkey --kill-process-after-error 100
 ```
 
 6. **--ignore-native-crashes** 参数
@@ -211,7 +257,8 @@ e.g. $ adb shell monkey --kill-process-after-error 100
 ```tex
 $ adb shell monkey [--ignore-native-crashes] COUNT
 
-e.g. $ adb shell monkey --ignore-native-crashes 100
+e.g.
+$ adb shell monkey --ignore-native-crashes 100
 ```
 
 7. **--monitor-native-crashes** 参数
@@ -220,7 +267,8 @@ e.g. $ adb shell monkey --ignore-native-crashes 100
 ```tex
 $ adb shell monkey [--monitor-native-crashes] COUNT
 
-e.g. $ adb shell monkey --monitor-native-crashes 100
+e.g.
+$ adb shell monkey --monitor-native-crashes 100
 ```
 
 ## 3. Monkey Script 压测实践
@@ -380,6 +428,7 @@ Monkey Script 命令;
 Monkey Script 命令;
 ......
 ```
+
 e.g.
 
 ```tex
@@ -413,7 +462,7 @@ $ adb push SCRIPT.script /data/local/tmp
 ### 3.5 执行 Monkey Script 脚本
 
 ```tex
-adb shell monkey [-f scriptfile [-f scriptfile] ...] COUNT
+$ adb shell monkey [-f scriptfile [-f scriptfile] ...] COUNT
 
 e.g.
 $ adb shell monkey -v -f /data/local/tmp/test.script 6 >~/Desktop/log-test.txt
