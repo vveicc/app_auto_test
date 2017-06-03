@@ -1,6 +1,6 @@
 # App 自动化测试【01】
 
-# _使用 Android SDK 内部工具对 Android App 进行自动化测试_
+# _使用 Monkey 对 Android App 进行自动化测试_
 
 
 
@@ -709,6 +709,8 @@ $ monkeyrunner -v INFO test.py
 
 ## 5. 写在最后
 
-本文介绍的 Android App 自动化测试工具和方法只能对 Android App 进行测试。这显然无法满足需求，不过没关系，我们有神器 —— [Appium](http://appium.io)。
+本文介绍的自动化测试工具和方法只能对 Android App 进行测试。
 
-Appium 是一款开源的、跨平台的自动化测试工具，支持模拟器（iOS、FirefoxOS、Android）和真机（iOS、Android、FirefoxOS）上的原生应用，混合应用以及移动 web 应用。
+这显然无法满足需求，不过没关系，Appium 能帮我们解决这个问题。
+
+[Appium](http://appium.io) 是一款开源的、跨平台的自动化测试工具，支持模拟器（iOS、FirefoxOS、Android）和真机（iOS、Android、FirefoxOS）上的原生应用，混合应用以及移动 web 应用。
