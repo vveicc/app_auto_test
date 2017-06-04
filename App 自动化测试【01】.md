@@ -116,6 +116,7 @@ $ adb shell monkey [options] COUNT
 #### 2.2.1 常用选项参数
 
 1. **-v** 参数
+
 指定日志输出的详细级别，默认级别为 0，一个 `-v` 增加一个级别，最高为 3。
 
 ```tex
@@ -126,6 +127,7 @@ $ adb shell monkey -v -p com.android.calculator2 100
 ```
 
 2. **>** 参数
+
 指定日志输出的文件位置，如果该文件已存在，则会覆盖原文件内容。
 
 ```tex
@@ -138,7 +140,9 @@ $ adb shell monkey -v -p com.android.calculator2 100 >log.txt
 #### 2.2.2 事件选项参数
 
 1. **-s** 参数
+
 指定产生随机事件的 seed 值，相同的 seed 值产生相同的事件序列。
+
 多次在 App 状态相同的情况下，输入不带 **-s** 参数的指令进行压测，压测结束的状态各不相同；而多次在 App 状态相同的情况下，输入带有相同 **-s** 参数的指令进行压测，压测结束的状态均相同。
 
 ```tex
@@ -149,6 +153,7 @@ $ adb shell monkey -s 36 -p com.android.calculator2 100
 ```
 
 2. **--throttle** & **--randomize-throttle** 参数
+
 指定事件之间的间隔，以降低系统的压力。如果不指定，系统会尽快的发送事件序列。
 
 ```tex
@@ -159,6 +164,7 @@ $ adb shell monkey --throttle 1000 -p com.android.calculator2 36
 ```
 
 3. **--pct-touch** 参数
+
 指定触摸事件的百分比（触摸事件是一个 down-up 事件，它发生在屏幕上的某单一位置），即点按
 
 ```tex
@@ -169,21 +175,47 @@ $ adb shell monkey -v --pct-touch 100 -p com.android.calculator2 100
 ```
 
 4. 类似设置事件百分比的参数还有：
+
 - **--pct-motion** 
+
 指定动作事件的百分比（动作事件由屏幕上某处的一个 down 事件、一系列的伪随机事件和一个 up 事件组成），即滑动。
+
 - **--pct-trackball**
+
 指定轨迹球事件的百分比（轨迹球事件由一个或几个随机的移动组成，有时还伴随有点击）。
-- **--pct-syskeys** ：指定系统按键事件的百分比（这些按键通常被保留，由系统使用，如 Home、Back、Start Call、End Call 及音量控制键）。
-- **--pct-nav** ：指定基本导航事件的百分比（基本导航事件由来自方向输入设备的 up/down/left/right 组成）。
-- **--pct-majornav** ：指定主要导航事件的百分比（主要导航事件通常引发图形界面中的动作，如：键盘的中间按键、回退按键、菜单按键）。
-- **--pct-appswitch** ：指定启动 Activity 事件的百分比。在随机间隔里，Monkey 将执行一个 startActivity() 调用，作为最大程度覆盖包中全部 Activity 的一种方法。
-- **--pct-flip** ：指定键盘翻转事件的百分比。
-- **--pct-anyevent** ：指定其它类型事件的百分比（所有其它类型的事件，如：按键、其它不常用的设备按钮等等）。
-- **--pct-pinchzoom** ：指定捏合缩放事件的百分比。
+
+- **--pct-syskeys**
+
+指定系统按键事件的百分比（这些按键通常被保留，由系统使用，如 Home、Back、Start Call、End Call 及音量控制键）。
+
+- **--pct-nav**
+
+指定基本导航事件的百分比（基本导航事件由来自方向输入设备的 up/down/left/right 组成）。
+
+- **--pct-majornav**
+
+指定主要导航事件的百分比（主要导航事件通常引发图形界面中的动作，如：键盘的中间按键、回退按键、菜单按键）。
+
+- **--pct-appswitch**
+
+指定启动 Activity 事件的百分比。在随机间隔里，Monkey 将执行一个 startActivity() 调用，作为最大程度覆盖包中全部 Activity 的一种方法。
+
+- **--pct-flip**
+
+指定键盘翻转事件的百分比。
+
+- **--pct-anyevent**
+
+指定其它类型事件的百分比（所有其它类型的事件，如：按键、其它不常用的设备按钮等等）。
+
+- **--pct-pinchzoom**
+
+指定捏合缩放事件的百分比。
 
 #### 2.2.3 约束选项参数
 
 1. **-p** 参数
+
 指定测试的 package ，一个 `-p` 对应一个测试 package 。指定后，则只对指定的 package 进行测试；如果不指定，则对系统中所有 package 进行测试。
 
 ```tex
@@ -194,6 +226,7 @@ $ adb shell monkey -p com.android.calculator2 -p com.android.calendar 100
 ```
 
 2. **-c** 参数
+
 指定测试的 category ，一个 `-c` 对应一个测试 category 。指定后，则只对指定 category 对应的 activity 进行测试；如果不指定，则对 `android.intent.category.LAUNCHER` 和 `android.intent.category.MONKEY` 对应的所有 activity 进行测试。
 
 ```tex
@@ -206,6 +239,7 @@ $ adb shell monkey -c android.intent.category.LAUNCHER -c android.intent.categor
 #### 2.2.4 调试选项参数
 
 1. **--hprof** 参数
+
 指定是否在事件序列发送前后立即生成分析报告。如果设置此项，Monkey 将会在事件序列前后立刻生成 report，大小约 5Mb，存储在 data/misc 。
 
 ```tex
@@ -216,6 +250,7 @@ $ adb shell monkey --hprof 100
 ```
 
 2. **--ignore-crashes** 参数
+
 指定是否忽略崩溃和异常。通常情况下，Monkey 在遇到了应用程序崩溃或是任何其他类型的非可控异常时会停止运行。如果设置此项，即使应用程序崩溃，Monkey 依然会发送事件，直到事件计数完成。
 
 ```tex
@@ -226,6 +261,7 @@ $ adb shell monkey --ignore-crashes 100
 ```
 
 3. **--ignore-timeouts** 参数
+
 指定是否忽略超时（ANR）。通常情况下，Monkey 在遇到了应用程序ANR（Application No Responding）错误时会停止运行。如果设置此项，即使应用程序发生 ANR 错误，Monkey 依然会发送事件，直到事件计数完成。
 
 ```tex
@@ -236,6 +272,7 @@ $ adb shell monkey --ignore-timeouts 100
 ```
 
 4. **--ignore-security-exceptions** 参数
+
 指定是否忽略权限错误。通常情况下，Monkey 在遇到了应用程序权限错误时会停止运行。如果设置此项，即使应用程序发生权限错误，Monkey 依然会发送事件，直到事件计数完成。
 
 ```tex
@@ -246,6 +283,7 @@ $ adb shell monkey --ignore-security-exceptions 100
 ```
 
 5. **--kill-process-after-error** 参数
+
 指定发生异常后是否杀死异常进程。通常情况下，Monkey 因为某个异常停止运行，应用程序还会继续运行。如果设置此项，发生异常时，Monkey 就会通知系统杀死这个进程。
 
 ```tex
@@ -256,6 +294,7 @@ $ adb shell monkey --kill-process-after-error 100
 ```
 
 6. **--ignore-native-crashes** 参数
+
 指定是否忽略 Android 系统本地代码发生的异常。
 
 ```tex
@@ -266,6 +305,7 @@ $ adb shell monkey --ignore-native-crashes 100
 ```
 
 7. **--monitor-native-crashes** 参数
+
 指定是否监控和报告 Android 系统本地代码发生的异常。如果此项和 --kill-process-after-error 参数同时设置，则系统将会终止。
 
 ```tex
@@ -298,6 +338,7 @@ DispatchPointer(10, 10, 0, 300, 600, 1, 1, -1, 1, 1, 0, 0);
 ```
 
 2. **DispatchTrackball** 命令
+
 用法同 **DispatchPointer** 命令。
 
 ```java
