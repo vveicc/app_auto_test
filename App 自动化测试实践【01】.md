@@ -1,4 +1,4 @@
-# App 自动化测试【01】
+# App 自动化测试实践【01】
 
 # _使用 Monkey 对 Android App 进行自动化测试_
 
@@ -13,10 +13,10 @@
 - [2. Monkey 压测实践](#2-monkey-压测实践)
   - [2.1 Monkey 压测步骤](#21-monkey-压测步骤)
   - [2.2 Monkey 选项参数](#22-monkey-选项参数)
-    - [2.2.1 常用选项参数](#221-常用选项参数)
-    - [2.2.2 事件选项参数](#222-事件选项参数)
-    - [2.2.3 约束选项参数](#223-约束选项参数)
-    - [2.2.4 调试选项参数](#224-调试选项参数)
+     - [2.2.1 常用选项参数](#221-常用选项参数)
+     - [2.2.2 事件选项参数](#222-事件选项参数)
+     - [2.2.3 约束选项参数](#223-约束选项参数)
+     - [2.2.4 调试选项参数](#224-调试选项参数)
 
 - [3. Monkey Script 压测实践](#3-monkey-script-压测实践)
   - [3.1 Monkey Script 常用命令](#31-monkey-script-常用命令)
@@ -28,9 +28,9 @@
 - [4. Monkey Runner 压测实践](#4-monkey-runner-压测实践)
   - [4.1 Monkey Runner 三大模块](#41-monkey-runner-三大模块)
   - [4.2 Monkey Runner 常用 API](#42-monkey-runner-常用-api)
-    - [4.2.1 MonkeyRunner API](#421-monkeyrunner-api)
-    - [4.2.2 MonkeyDevice API](#422-monkeydevice-api)
-    - [4.2.3 MonkeyImage API](#423-monkeyimage-api)
+     - [4.2.1 MonkeyRunner API](#421-monkeyrunner-api)
+     - [4.2.2 MonkeyDevice API](#422-monkeydevice-api)
+     - [4.2.3 MonkeyImage API](#423-monkeyimage-api)
   - [4.3 编写 Monkey Runner 脚本](#43-编写-monkey-runner-脚本)
   - [4.4 执行 Monkey Runner 脚本](#44-执行-monkey-runner-脚本)
 
@@ -176,40 +176,31 @@ $ adb shell monkey -v --pct-touch 100 -p com.android.calculator2 100
 
 4. 类似设置事件百分比的参数还有：
 
-- **--pct-motion** 
-
+- **--pct-motion** 参数
 指定动作事件的百分比（动作事件由屏幕上某处的一个 down 事件、一系列的伪随机事件和一个 up 事件组成），即滑动。
 
-- **--pct-trackball**
-
+- **--pct-trackball** 参数
 指定轨迹球事件的百分比（轨迹球事件由一个或几个随机的移动组成，有时还伴随有点击）。
 
 - **--pct-syskeys**
-
 指定系统按键事件的百分比（这些按键通常被保留，由系统使用，如 Home、Back、Start Call、End Call 及音量控制键）。
 
 - **--pct-nav**
-
 指定基本导航事件的百分比（基本导航事件由来自方向输入设备的 up/down/left/right 组成）。
 
 - **--pct-majornav**
-
 指定主要导航事件的百分比（主要导航事件通常引发图形界面中的动作，如：键盘的中间按键、回退按键、菜单按键）。
 
 - **--pct-appswitch**
-
 指定启动 Activity 事件的百分比。在随机间隔里，Monkey 将执行一个 startActivity() 调用，作为最大程度覆盖包中全部 Activity 的一种方法。
 
 - **--pct-flip**
-
 指定键盘翻转事件的百分比。
 
 - **--pct-anyevent**
-
 指定其它类型事件的百分比（所有其它类型的事件，如：按键、其它不常用的设备按钮等等）。
 
 - **--pct-pinchzoom**
-
 指定捏合缩放事件的百分比。
 
 #### 2.2.3 约束选项参数
@@ -750,8 +741,6 @@ $ monkeyrunner -v INFO test.py
 
 ## 5. 写在最后
 
-本文介绍的自动化测试工具和方法只能对 Android App 进行测试。
-
-这显然无法满足需求，不过没关系，Appium 能帮我们解决这个问题。
+本文介绍的自动化测试工具 Monkey 是 Android SDK 自带的工具，只能对 Android App 进行测试。这显然无法满足需求，不过没关系，Appium 能帮我们解决这个问题。
 
 [Appium](http://appium.io) 是一款开源的、跨平台的自动化测试工具，支持模拟器（iOS、FirefoxOS、Android）和真机（iOS、Android、FirefoxOS）上的原生应用，混合应用以及移动 web 应用。
